@@ -1,0 +1,157 @@
+/* DELETE ME BEFORE UPLOAD */
+.redbox {
+    border: 1px solid red;
+}
+
+.bluebox {
+    border: 1px solid blue;
+}
+
+.orangebox {
+    border: 3px solid orange
+}
+
+/* DELETE ME BEFORE UPLOAD */
+
+body {
+    margin: auto;
+    max-width: 37.5rem;
+    background-color: #F5F5F5;
+    font-family: 'Smythe', cursive;
+    font-weight: 400px;
+    font-style: normal;
+    color: #000000;
+} 
+
+.flex {
+    display: flex;
+}
+
+/* .flex-column {
+    display: flex;
+    flex-direction: column;
+} */
+
+.menu-list {
+    padding: 0px
+}
+
+.text-white {
+    color: #FFFFFF
+}
+
+.verdana {
+    font-family: 'Verdana';
+    font-style: normal;
+    font-weight: 700;
+    /* font-size: 20px;
+    line-height: 31px; */
+}
+
+.limegreen-btn {
+    background-color: #16DB99
+}
+
+.image {
+   width: 100%; 
+}
+
+header {
+    margin-bottom: 45px;
+    position: relative;
+}
+
+.header-title-moto {
+    position: absolute;
+    top: 45;
+    left: 45;
+    list-style-type: none;  
+    margin: 0px;
+    padding: 0px;
+}
+
+.header-title { 
+    font-size: 39px;
+    line-height: 24px;
+    padding-bottom:  19px; 
+
+}
+
+.header-moto { 
+    font-size: 22.4216px;
+    line-height: 14px;
+}
+
+.add-item {
+    margin-left: auto;
+    border: 1.5px solid #DEDEDE;
+    border-radius: 50%;
+    width: 50px;
+    height:50px; 
+    font-family: 'Inter';
+    font-weight: 200;
+    font-size: 30px;
+    color: #3C3C3C;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
+/*  Menu Items  */
+
+.menu-container {
+    
+    gap: 31px;
+    width: 508px;
+    height: 140px;
+    margin-top: 45px;
+    margin-left: 46px;
+      
+}
+
+.menu-item-container-divder {
+
+width: 504px;
+height: 0px;
+margin-left: 45px;
+border: 1px solid #D2D2D2;
+
+}
+
+.menu-item-emoji{
+    font-family: 'Inter';
+    font-size: 78.72px;
+    line-height: 98px;
+    letter-spacing: -0.02em;
+    margin: 0px;
+}
+
+.menu-item-description {
+    margin: 0px;
+}
+
+.menu-item-name {
+    font-size: 28px;
+    line-height: 17px;
+    margin: 0px;
+    padding-top: 5px;
+}
+.menu-item-ingredients {
+    font-size: 16px;
+    line-height: 24px;
+    color: #8B8B8B;
+    margin: 0px;
+    padding: 8px 0px 8px 0px;
+}
+
+.menu-item-price {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.order-container {
+    width: 508px;
+    margin: 45px;
+
+    border: 1px solid red;
+}
