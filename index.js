@@ -48,25 +48,33 @@ renderMenu()
 
 // Order Screen //
 
-// function getOrderHtml (){
-//     let orderHtml = ``
+function getOrderHtml() {
+    let orderHtml = ``
 
-//         orderHtml += `
+    menuArray.forEach(function(menu){
 
-//         <div class="menu-item-description">
-//         <div class=menu-item-name> Pizza
-//         </div>
+            orderHtml += `
 
+        <div class="menu-container flex"> 
 
-//     `
-// return orderHtml
-// }
+                    <div class="menu-item-description">
+                        <div class=menu-item-name> ${menu.name} </div>
+                        <div class=menu-item-price> $${menu.price} </div>  
+                    </div> 
+                    
+        </div>
+        
+        `   
+    })
+return orderHtml
 
-// function renderOrder() {
-//     document.getElementById('order-list').innerHTML = getOrderHtml()
-// } 
+}
 
-// renderOrder()
+function renderOrder(){
+    document.getElementById('order-list').innerHTML = getOrderHtml()
+} 
+
+renderOrder()
 
 console.log("Hello World!")
 
