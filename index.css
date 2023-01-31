@@ -1,4 +1,4 @@
-/* DELETE ME BEFORE UPLOAD */
+/* DELETE ME BEFORE FINAL UPLOAD */
 .redbox {
     border: 1px solid red;
 }
@@ -11,7 +11,7 @@
     border: 3px solid orange
 }
 
-/* DELETE ME BEFORE UPLOAD */
+/* DELETE ME BEFORE FINAL UPLOAD */
 
 body {
     margin: auto;
@@ -91,6 +91,7 @@ header {
     font-family: 'Inter';
     font-weight: 200;
     font-size: 30px;
+    line-height: 47px;
     color: #3C3C3C;
     text-align: center;
     cursor: pointer;
@@ -150,8 +151,39 @@ border: 1px solid #D2D2D2;
 }
 
 .order-container {
+    position: relative;
     width: 508px;
+    height: 319;
     margin: 45px;
 
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
+
+.order-item-divder {
+
+    width: 504px;
+    height: 0px;
+    /* margin: 45px; */
+    border: 1px solid #393333;
+    
+    }
+#complete-order {
+    position: absolute;
+    width: 508px;
+    height: 60px;
+    background: #16DB99;
+    bottom: 0px;
+    border-radius: 3px;
+    border: none;
+   
+
+    /* Button Text */
+
+    font-family: 'Verdana';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: #FFFFFF;
+
+    }

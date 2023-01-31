@@ -4,20 +4,20 @@ export const menuArray = [
         ingredients: ["pepperoni",  "mushrom",  "mozarella"],
         price: 14,
         emoji: "🍕",
-        id: 0,
+        id: 4954,
     },
     {
         name: "Hamburger",
         ingredients: ["beef",  "cheese", "lettuce"],
         price: 12,
         emoji: "🍔",
-        id: 1,
+        id: 4955,
     },
         {
         name: "Beer",
         ingredients: ["grain,  hops,  yeast,  water"],
         price: 12,
         emoji: "🍺",
-        id: 2,
+        id: 4956,
     }
 ]

@@ -1,14 +1,5 @@
 import { menuArray } from './data.js'
 
-// addItems: "0"
-
-document.addEventListener('click', function(e){
-    if (e.target.dataset.addItems) {
-        console.log(e.target.dataset.addItems)
-    }
-    
-})
-
 function getMenuHtml() {
     let menuHtml = ``
 
@@ -22,13 +13,13 @@ function getMenuHtml() {
                     </div> 
                         
                     <div class="menu-item-description">
-                        <div class=menu-item-name> ${menu.name} </div>
-                        <div class=menu-item-ingredients> ${menu.ingredients} </div>
-                        <div class=menu-item-price> $${menu.price} </div>  
+                        <div class="menu-item-name"> ${menu.name} </div>
+                        <div class="menu-item-ingredients"> ${menu.ingredients} </div>
+                        <div class="menu-item-price"> $${menu.price} </div>  
                     </div> 
 
-                    <button class="add-item" data-add-items="${menu.id}" type="button"> +
-                    </button>
+                    <div class="add-item" data-add-items-id="${menu.id}"> +
+                    </div>
                     
         </div>
         
@@ -36,45 +27,71 @@ function getMenuHtml() {
         `   
     })
 return menuHtml
-
-
 }
 
 function renderMenu(){
     document.getElementById('menu-list').innerHTML = getMenuHtml()
 } 
-
 renderMenu()
 
 // Order Screen //
 
-function getOrderHtml() {
-    let orderHtml = ``
+// document.addEventListener('click', function(e){
+//     if (e.target.dataset.addItemsId) {
+//         handleAddItem(e.target.dataset.addItemsId)
+//     }})
 
-    menuArray.forEach(function(menu){
+//     function handleAddItem(menuId){
+//         const targetMenuObj = menuArray.filter(function(menu){
+//         return Number(menu.id) === Number(menuId)
+//         })[0] 
+//             getOrderHtml(targetMenuObj)
+//             renderOrder()
+//             console.log(targetMenuObj.name)
+// }
 
+
+
+    function getOrderHtml() {
+            let orderHtml = ``
+           
             orderHtml += `
 
-        <div class="menu-container flex"> 
+                <div class="order-container"> 
+                            <div class=menu-item-name> Your Order 
+                            </div>
 
-                    <div class="menu-item-description">
-                        <div class=menu-item-name> ${menu.name} </div>
-                        <div class=menu-item-price> $${menu.price} </div>  
-                    </div> 
-                    
-        </div>
-        
-        `   
-    })
-return orderHtml
+                            <div class="menu-item-description flex">
+                                <div class="menu-item-name order-name"> Pizza </div>
+                                <div class="menu-item-price order-price"> $14 </div>
+                            </div>
 
-}
+                            <div class="order-item-divder"> 
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="menu-item-price"> Total price: </div>
+                                <div class="menu-item-price"> $14 </div> 
+                            </div>
 
-function renderOrder(){
-    document.getElementById('order-list').innerHTML = getOrderHtml()
-} 
+                            <button id="complete-order" type="button"> Compelete Order 
+                            </button> 
+                </div>
 
-renderOrder()
 
-console.log("Hello World!")
 
+                `   
+            
+        return orderHtml
+        }
+
+
+    function renderOrder(){
+            document.getElementById('order-list').innerHTML = getOrderHtml()
+        } 
+        renderOrder()
+       
+    
+    
+    
+        console.log("You're Good")
