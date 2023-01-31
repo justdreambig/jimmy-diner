@@ -7,7 +7,7 @@
        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
     </head>
     
-    <body class="redbox">
+    <body class="">
         <header>
             <img class="item-img" src="images/img-header.png" alt="close up picture of a burger"/> 
                 <ul class="header-title-moto">
@@ -20,12 +20,34 @@
         </header>
         <main>
 
-            <div class="menu-list" id="menu-list">
+            <div class="menu" id="menu">
 			<!-- Menu here!! -->
             </div>  
             
-            <div class="order-list" id="order-list">
-            <!-- Order here!! -->
+            <div class="hidden" id="order">
+           
+            <div class="order-container"> 
+                <div class="your-order-title"> Your Order 
+                </div>
+
+                <div class="added-order-items" id="items">
+                <!-- Order Items here!! -->
+                </div> 
+
+                 <div class="order-item-divder"> 
+                </div>
+                
+                <div class="flex order-total">
+                    <div class="menu-item-price total-price"> Total price: </div>
+                    <div class="menu-item-price total-number"> $ 0 </div> 
+                </div>
+                
+
+                <button id="complete-order" type="button"> Compelete Order 
+                </button> 
+    </div>
+
+
             </div>
 
         </main>

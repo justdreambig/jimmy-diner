@@ -1,4 +1,6 @@
 import { menuArray } from './data.js'
+const completeOrder = document.getElementById("complete-order")
+
 
 function getMenuHtml() {
     let menuHtml = ``
@@ -18,7 +20,7 @@ function getMenuHtml() {
                         <div class="menu-item-price"> $${menu.price} </div>  
                     </div> 
 
-                    <div class="add-item" data-add-items-id="${menu.id}"> +
+                    <div class="add-item" id="add-item" data-add-items-id="${menu.id}"> +
                     </div>
                     
         </div>
@@ -30,78 +32,71 @@ return menuHtml
 }
 
 function renderMenu(){
-    document.getElementById('menu-list').innerHTML = getMenuHtml()
+    document.getElementById('menu').innerHTML = getMenuHtml()
 } 
 renderMenu()
 
 // Order Screen //
 
-// document.addEventListener('click', function(e){
-//     if (e.target.dataset.addItemsId) {
-//         handleAddItem(e.target.dataset.addItemsId)
-//     }})
-
-//     function handleAddItem(menuId){
-//         const targetMenuObj = menuArray.filter(function(menu){
-//         return Number(menu.id) === Number(menuId)
-//         })[0] 
-//             getOrderHtml(targetMenuObj)
-//             renderOrder()
-//             console.log(targetMenuObj.name)
-// }
+let addedOrderItems = []
 
 
+document.addEventListener('click', function(e){
+    if (e.target.dataset.addItemsId) {
+        handleAddItem(e.target.dataset.addItemsId)
+        toggleHiddenOrder()
+    }})
 
-    function getOrderHtml() {
-            let orderHtml = ``
-           
-            orderHtml += `
+    function isHidden(el) {
+        return window.getComputedStyle(el).display === "none";
+      }
 
-                <div class="order-container"> 
-                            <div class="your-order-title"> Your Order 
-                            </div>
+    function toggleHiddenOrder(){
 
-                            <div class="menu-item-description order-description">
-                                <div class="item-one flex">   
-                                    <div class="menu-item-name order-name"> Pizza </div>
-                                    <div class="menu-item-name remove"> remove </div>
-                                    <div class="menu-item-price order-price"> $14 </div>
-                                </div>  
+        let element = document.querySelector("#order");
+            if (isHidden(element)) {
+               
+                document.getElementById('order').classList.toggle('hidden');
+            } 
+        
+    }
+    
 
-                                <div class="item-two flex"> 
-                                    <div class="menu-item-name order-name"> Beer </div>
-                                    <div class="menu-item-name remove"> remove </div>
-                                    <div class="menu-item-price order-price"> $14 </div>
-                                </div>
-                            </div>
-
-                            <div class="order-item-divder"> 
-                            </div>
-                            
-                            <div class="flex order-total">
-                                <div class="menu-item-price total-price"> Total price: </div>
-                                <div class="menu-item-price total-number"> $14 </div> 
-                            </div>
-                            
-
-                            <button id="complete-order" type="button"> Compelete Order 
-                            </button> 
-                </div>
-
-
-
-                `   
-            
-        return orderHtml
-        }
-
-
-    function renderOrder(){
-            document.getElementById('order-list').innerHTML = getOrderHtml()
-        } 
+    function handleAddItem(menuId){
+        const targetMenuObj = menuArray.filter(function(menu){
+        return Number(menu.id) === Number(menuId)
+        })[0]
+    
+        addedOrderItems.push(targetMenuObj)
         renderOrder()
-       
+        console.log(addedOrderItems)
+    }
+    
+    function getOrderHtml() {
+        let orderHtml = ``
+
+            addedOrderItems.forEach(function(item) {
+
+            orderHtml += `
+                <div class="menu-item-description order-item flex">   
+                    <div class="menu-item-name order-name"> ${item.name} </div>
+                    <div class="menu-item-name remove"> remove </div>
+                    <div class="menu-item-price order-price">$${item.price}</div>
+                </div>
+            `   
+        })
+    
+        return orderHtml
+        
+}
+    
+    function renderOrder(){
+        document.getElementById('items').innerHTML = getOrderHtml()
+    } 
+    
+    renderOrder()
+    
+   
     
     
-    
-        console.log("You're Good")
+        console.log("Let's Go")
