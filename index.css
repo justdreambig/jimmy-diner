@@ -159,6 +159,12 @@ border: 1px solid #D2D2D2;
     /* border: 1px solid red; */
 }
 
+.your-order-title {
+    display: flex;
+    justify-content: center;
+    
+}
+
 .order-item-divder {
 
     width: 504px;
@@ -175,6 +181,7 @@ border: 1px solid #D2D2D2;
     bottom: 0px;
     border-radius: 3px;
     border: none;
+    cursor: pointer;
    
 
     /* Button Text */
@@ -187,3 +194,42 @@ border: 1px solid #D2D2D2;
     color: #FFFFFF;
 
     }
+
+.order-price, .total-number {
+    margin-left: auto;
+}
+
+.order-description {
+    margin-top: 64px;
+    margin-bottom: 31px;
+    
+}
+
+.order-total {
+    margin-top: 14px;
+    margin-bottom: 53px;
+}
+
+.item-one, .item-two  {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.total-price {
+    font-size: 28px;
+    line-height: 24px;
+   
+}
+
+.remove {
+    font-family: 'Verdana';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    /* or 200% */
+    color: #BBBBBB;
+    margin-left: 11px;
+    cursor: pointer;
+
+}

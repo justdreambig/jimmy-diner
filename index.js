@@ -58,21 +58,31 @@ renderMenu()
             orderHtml += `
 
                 <div class="order-container"> 
-                            <div class=menu-item-name> Your Order 
+                            <div class="your-order-title"> Your Order 
                             </div>
 
-                            <div class="menu-item-description flex">
-                                <div class="menu-item-name order-name"> Pizza </div>
-                                <div class="menu-item-price order-price"> $14 </div>
+                            <div class="menu-item-description order-description">
+                                <div class="item-one flex">   
+                                    <div class="menu-item-name order-name"> Pizza </div>
+                                    <div class="menu-item-name remove"> remove </div>
+                                    <div class="menu-item-price order-price"> $14 </div>
+                                </div>  
+
+                                <div class="item-two flex"> 
+                                    <div class="menu-item-name order-name"> Beer </div>
+                                    <div class="menu-item-name remove"> remove </div>
+                                    <div class="menu-item-price order-price"> $14 </div>
+                                </div>
                             </div>
 
                             <div class="order-item-divder"> 
                             </div>
                             
-                            <div class="flex">
-                                <div class="menu-item-price"> Total price: </div>
-                                <div class="menu-item-price"> $14 </div> 
+                            <div class="flex order-total">
+                                <div class="menu-item-price total-price"> Total price: </div>
+                                <div class="menu-item-price total-number"> $14 </div> 
                             </div>
+                            
 
                             <button id="complete-order" type="button"> Compelete Order 
                             </button> 
