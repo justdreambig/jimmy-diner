@@ -23,14 +23,19 @@ body {
     color: #000000;
 } 
 
+main {
+    position: relative;
+}
+
 .flex {
     display: flex;
 }
 
-/* .flex-column {
+.flex-column { 
     display: flex;
     flex-direction: column;
-} */
+    align-items: center;
+}
 
 .menu-list {
     padding: 0px
@@ -101,7 +106,6 @@ header {
 /*  Menu Items  */
 
 .menu-container {
-    
     gap: 31px;
     width: 508px;
     height: 140px;
@@ -243,7 +247,84 @@ border: 1px solid #D2D2D2;
 
 }
 
+/* Modal Checkout */
+
+.modal-container {
+    position:absolute;
+    width: 524px;
+    height: 542.24px;
+    left: 38px;
+    top: 60px;
+    background: #FFFFFF;
+    border-radius: 3.88991px;
+    font-family: 'Verdana';
+
+    filter: drop-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
+  
+
+}
+
+.enter-card-details {
+    margin: 46px 0px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 31px;
+    color: #000000;
+}
+
+
+input {
+   
+    width: 475.91px;
+    height: 71.3px;
+    font-size: 20px;
+    color: #757575;
+    border: 1.29664px solid #757575;
+    border-radius: 3.88991px;
+    padding-left: 26px;
+    
+}
+
+input[type="text"]::placeholder {
+    margin-left: 50px;
+  }
+
+.middle-input {
+    margin: 23px auto;
+}
+
+.pay-btn {
+    
+    width: 475.91px;
+    height: 71.3px;
+    margin: 46px 24px 30px;
+    background: #16DB99;
+    border-radius: 3.88991px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 31px; 
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+#thank-you {
+    /* position: absolute; */
+    width: 504px;
+    height: 120px;
+    left: 50px;
+    top: 789px;
+    background: #ECFDF5;
+}
+
+.thank-you-text {
+    font-size: 32px;
+    line-height: 17px;
+    color: #065F46;
+}
+
 /* utility */
 .hidden {
     display: none;
 }
+
