@@ -44,67 +44,47 @@ document.addEventListener('click', function(e){
     if (e.target.dataset.addItemsId) {
         handleAddItem(e.target.dataset.addItemsId)
         toggleHiddenOrder()
-
+        
     } else if (e.target.dataset.remove){
-        removeItem ()
-    }    
-         
-    })
 
-    function removeItem (){
-        console.log('remove')
-    
     }
 
-     function isHidden(el) {
-                return window.getComputedStyle(el).display === "none";
-              }
-        
-            function toggleHiddenOrder(){
-        
-                let element = document.querySelector("#order");
-                    if (isHidden(element)) {
-                       
-                        document.getElementById('order').classList.toggle('hidden');
-                    } 
-                
-            } 
-    
+    })
+
+
+
         function handleAddItem(menuId){
         const targetMenuObj = menuArray.filter(function(menu){
         return Number(menu.id) === Number(menuId)
         })[0]
-    
+        
         addedOrderItems.push(targetMenuObj)
-        getOrderHtml(addedOrderItems)
+        getOrderHtml()
     }
     
-    function getOrderHtml(arr) {
-        const orderList = document.getElementById('order');
-        console.log(arr)
+    function getOrderHtml() {
+        const orderList = document.getElementById('added-order-items');
         let orderHtml = ``
 
-        for(let i = 0; i < arr.length; i++) {
+        // for(let i = 0; i < arr.length; i++) 
+        addedOrderItems.forEach(function(order) {
             
             orderHtml += `
                 <div class="menu-item-description order-item flex">   
-                    <div class="menu-item-name order-name"> ${arr[i].name} </div>
-                    <div class="menu-item-name remove data-remove="${arr[i].id}"> remove </div>
-                    <div class="menu-item-price order-price">$${arr[i].price}</div>
+                    <div class="menu-item-name order-name"> ${order.name} </div>
+                    <div class="menu-item-name remove" data-remove="${order.id}"> remove </div>
+                    <div class="menu-item-price order-price">$${order.price}</div>
                 </div>
             `; 
             
-        }  
+        })
+
+        if (document.getElementById('order').classList == ('hidden')){
+            document.getElementById('order').classList.toggle('hidden');
+        }
+
         orderList.innerHTML = orderHtml;  
-         
-         
+        
 }
 
-
-
-
-    
-        console.log("Let's Go")
-
-
-       
+console.log("Let's Go")
