@@ -222,8 +222,12 @@ border: 1px solid #D2D2D2;
     font-size: 28px;
     line-height: 24px;
     
-   
 }
+
+.total-number {
+    margin-left: auto;
+}
+
 
 .remove {
     font-family: 'Verdana';

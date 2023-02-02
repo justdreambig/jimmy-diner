@@ -1,7 +1,8 @@
 import { menuArray } from './data.js'
-const completeOrder = document.getElementById("complete-order")
+const completeOrder = document.getElementById("complete-order");
 
-
+// Building the menu from a list of items in menuArray from data.js
+const menuList = document.getElementById('menu');
 function getMenuHtml() {
     let menuHtml = ``
 
@@ -28,75 +29,82 @@ function getMenuHtml() {
             <div class="menu-item-container-divder"> </div>
         `   
     })
-return menuHtml
+return menuHtml 
 }
+menuList.innerHTML = getMenuHtml();
 
-function renderMenu(){
-    document.getElementById('menu').innerHTML = getMenuHtml()
-} 
-renderMenu()
 
 // Order Screen //
 
 let addedOrderItems = []
-
+let addedOrderItemsTotal =[]
 
 document.addEventListener('click', function(e){
+     
     if (e.target.dataset.addItemsId) {
         handleAddItem(e.target.dataset.addItemsId)
         toggleHiddenOrder()
-    }})
 
-    function isHidden(el) {
-        return window.getComputedStyle(el).display === "none";
-      }
+    } else if (e.target.dataset.remove){
+        removeItem ()
+    }    
+         
+    })
 
-    function toggleHiddenOrder(){
-
-        let element = document.querySelector("#order");
-            if (isHidden(element)) {
-               
-                document.getElementById('order').classList.toggle('hidden');
-            } 
-        
-    }
+    function removeItem (){
+        console.log('remove')
     
+    }
 
-    function handleAddItem(menuId){
+     function isHidden(el) {
+                return window.getComputedStyle(el).display === "none";
+              }
+        
+            function toggleHiddenOrder(){
+        
+                let element = document.querySelector("#order");
+                    if (isHidden(element)) {
+                       
+                        document.getElementById('order').classList.toggle('hidden');
+                    } 
+                
+            } 
+    
+        function handleAddItem(menuId){
         const targetMenuObj = menuArray.filter(function(menu){
         return Number(menu.id) === Number(menuId)
         })[0]
     
         addedOrderItems.push(targetMenuObj)
-        renderOrder()
-        console.log(addedOrderItems)
+        getOrderHtml(addedOrderItems)
     }
     
-    function getOrderHtml() {
+    function getOrderHtml(arr) {
+        const orderList = document.getElementById('order');
+        console.log(arr)
         let orderHtml = ``
 
-            addedOrderItems.forEach(function(item) {
-
+        for(let i = 0; i < arr.length; i++) {
+            
             orderHtml += `
                 <div class="menu-item-description order-item flex">   
-                    <div class="menu-item-name order-name"> ${item.name} </div>
-                    <div class="menu-item-name remove"> remove </div>
-                    <div class="menu-item-price order-price">$${item.price}</div>
+                    <div class="menu-item-name order-name"> ${arr[i].name} </div>
+                    <div class="menu-item-name remove data-remove="${arr[i].id}"> remove </div>
+                    <div class="menu-item-price order-price">$${arr[i].price}</div>
                 </div>
-            `   
-        })
-    
-        return orderHtml
-        
+            `; 
+            
+        }  
+        orderList.innerHTML = orderHtml;  
+         
+         
 }
-    
-    function renderOrder(){
-        document.getElementById('items').innerHTML = getOrderHtml()
-    } 
-    
-    renderOrder()
-    
-   
-    
+
+
+
+
     
         console.log("Let's Go")
+
+
+       
