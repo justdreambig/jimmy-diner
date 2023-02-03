@@ -51,8 +51,8 @@
                 </div>
             </div>
 
-            <div class="redbox" id="thank-you">
-                <p class="thank-you-text flex-column"> Thanks, James Your order is on its way! </p>
+            <div class="thank-you hidden" id="thank-you">
+                  
                 <!-- Thank you here!! -->
             </div>
 
@@ -60,11 +60,11 @@
             <div class="hidden" id="modal">
                 <div class="modal-container flex-column">
                     <p class="enter-card-details">Enter card details</p>
-                    <form class="card-form flex-column" id="card-form">
+                    <form class="card-form flex-column" id="payment-form">
 
-                        <input type="text" name="name" placeholder="Enter your name" required/>
-                     <input class="middle-input" type="text" name="card" placeholder="Enter card number" required/>
-                        <input type="text" name="cvv" placeholder="Enter CVV" required/>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required/>
+                     <input class="middle-input" id="cardNumber" type="text" name="cardNumber" placeholder="Enter card number" required/>
+                        <input type="text" id="cvvNumber" name="cvvNumber" placeholder="Enter CVV" required/>
                         <button class="pay-btn" id="pay-btn" type="submit" data-pay-btn="pay-btn"> Pay </button> 
                     </form>    
                                 

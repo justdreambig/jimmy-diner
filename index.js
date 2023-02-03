@@ -36,7 +36,7 @@ menuList.innerHTML = getMenuHtml();
 
 
 
-
+const order = (document.getElementById('order')) 
 let addedOrderItems = []
 
     document.addEventListener('click', function(e){
@@ -48,103 +48,108 @@ let addedOrderItems = []
             removeOrderItem (e.target.dataset.remove)
 
         } else if (e.target.dataset.completeBtn){
-            getRemovePayModal()
-            console.log ("complete button clicked", e.target.dataset.completeBtn)
+            modal.classList.toggle('hidden')
+            
         }
-
-        // } else if (e.target.dataset.payBtn){
-        //     getRemovePayModal()
-        //     console.log ("pay button", e.target.dataset.payBtn)
         
         })
-        
+
+        function getOrderHtml() {
+                const orderList = document.getElementById('added-order-items');
+                let orderHtml = ``
+    
+                addedOrderItems.forEach(function(order) {
+                    
+                    orderHtml += `
+                        <div class="menu-item-description order-item flex">   
+                            <div class="menu-item-name order-name"> ${order.name} </div>
+                            <div class="menu-item-name remove" data-remove="${order.id}"> remove </div>
+                            <div class="menu-item-price order-price">$${order.price}</div>
+                        </div>
+                    `; 
+                    
+                })
+    
+                orderList.innerHTML = orderHtml;
+                getOrderTotalPrice()
+                hideOrder()  
+        }
+
+// when the + is clicks it adds one item addedOrderItem array and toggles hidden to show order list 
         function handleAddItem(menuId){
-                const targetMenuObj = menuArray.filter(function(menu){
-                return Number(menu.id) === Number(menuId)
-                })[0]
-            
-                addedOrderItems.push(targetMenuObj)
-                getOrderHtml()
-            }
+            const targetMenuObj = menuArray.filter(function(menu){
+            return Number(menu.id) === Number(menuId)
+            })[0]
+        
+            addedOrderItems.push(targetMenuObj)
+            getOrderHtml()
+        }
 
-        function removeOrderItem (orderItemId) {
-                for (let i = 0; i < addedOrderItems.length; i++) {
-                    if (Number(addedOrderItems[i].id) === Number(orderItemId)) {
-                        addedOrderItems.splice(i, 1);
-                        break;
-                    }
+// removes one of the selected items from the order form - when the array is empty it hides the order form 
+
+    function removeOrderItem (orderItemId) {
+            for (let i = 0; i < addedOrderItems.length; i++) {
+                if (Number(addedOrderItems[i].id) === Number(orderItemId)) {
+                    addedOrderItems.splice(i, 1);
+                    break;
                 }
-                getOrderHtml()
             }
+            getOrderHtml()
+        }
 
-        function getRemovePayModal() {
-                
-                let modal = document.getElementById('modal')
-                    if (modal.classList.contains('hidden')) {
-                            modal.classList.remove('hidden') 
-                    } else {
-                        modal.classList.add('hidden') 
-                    }
-            }        
+// Toggle between hidden and shown if order has items
 
-// Listen for submit - Prevent default for submit button then removes payment modal when all fields
-// have been completed and submited - brings up thank you window   //
+    function hideOrder () {
+        
+        if(addedOrderItems.length > 0 ) {
+            
+                if (order.classList.contains('hidden')) 
+                    order.classList.remove('hidden')
+                    
+                } else { 
+                    order.classList.add('hidden')
+                    
+                }
+            }
+    
+// totals all the added items
+    
+        function getOrderTotalPrice() {
+            const totalPrice = addedOrderItems.reduce((sum, item) => sum + item.price, 0);
+            const totalElement = document.getElementById("total");
+            totalElement.innerHTML = totalPrice;
+            
+        }
+            
+            
 
-        const paymentForm = document.getElementById('card-form')
+// Listen for submit - Prevent default for submit button then removes payment modal when all fields have been completed and submited = clears order array and form - brings up thank you window   //
+
+     
+    const modal = document.getElementById('modal')
+    const paymentForm = document.getElementById('payment-form')
+    const thankYou = document.getElementById('thank-you')
 
             paymentForm.addEventListener('submit', function(e){
                 e.preventDefault()
-                getRemovePayModal()
+                const paymentFormData = new FormData(paymentForm)
+                const name = paymentFormData.get('fullName')
+                thankYou.innerHTML = `Thanks, ${ name} Your order is on its way! `;
+                
+                removeOrderPayThankYou()
+          
         })
             
-                        
-                    
+        function removeOrderPayThankYou () {
+            order.classList.toggle('hidden')
+            thankYou.classList.toggle('hidden')
+            modal.classList.toggle('hidden')
+            addedOrderItems.length = 0;
+            paymentForm.reset();
+             
+        }
+    
 
-        function getOrderHtml() {
-            const orderList = document.getElementById('added-order-items');
-            let orderHtml = ``
+console.log("🐠 🐳  Just Keep Swimming and don't forget to JustDreamBig! 🚀 🚀")
 
-            addedOrderItems.forEach(function(order) {
-                
-                orderHtml += `
-                    <div class="menu-item-description order-item flex">   
-                        <div class="menu-item-name order-name"> ${order.name} </div>
-                        <div class="menu-item-name remove" data-remove="${order.id}"> remove </div>
-                        <div class="menu-item-price order-price">$${order.price}</div>
-                    </div>
-                `; 
-                
-            })
-
-            orderList.innerHTML = orderHtml;
-            getOrderTotalPrice()
-            hideOrder ()  
-    }
-
-    // totals all the added items
-
-    function getOrderTotalPrice() {
-        const totalPrice = addedOrderItems.reduce((sum, item) => sum + item.price, 0);
-        const totalElement = document.getElementById("total");
-        totalElement.innerHTML = totalPrice;
-        
-    }
-
-    // Toggle between hidden and shown if order has items
-
-        function hideOrder () {
-            
-            if(addedOrderItems.length > 0 ) {
-                let order = (document.getElementById('order'))
-                    if (order.classList.contains('hidden')) 
-                        order.classList.remove('hidden')
-                        
-                    } else { 
-                        order.classList.add('hidden')
-                        
-                    }
-                }
-                
-
-console.log("🐠 🐳  Just Keep Swimming!  🐙 🐡 ")
  
