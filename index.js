@@ -1,6 +1,6 @@
 import { menuArray } from './data.js'
 
-// Building the menu from a list of items in menuArray from data.js
+// Building the menu from a list of items in menuArray
 const menuList = document.getElementById('menu');
 function getMenuHtml() {
     let menuHtml = ``
@@ -123,7 +123,7 @@ let addedOrderItems = []
             
             
 
-// Listen for submit - Prevent default for submit button then removes payment modal when all fields have been completed and submited = clears order array and form - brings up thank you window   //
+// Listen for submit - brings up Thank you message and triggers  removeOrderPayThankYou() // 
 
      
     const modal = document.getElementById('modal')
@@ -142,12 +142,19 @@ let addedOrderItems = []
             
         function removeOrderPayThankYou () {
             order.classList.toggle('hidden')
-            thankYou.classList.toggle('hidden')
+            thankYou.classList.remove('hidden')
             modal.classList.toggle('hidden')
             addedOrderItems.length = 0;
             paymentForm.reset();
-             
+            const myTimeout = setTimeout(removeThankYou, 5000);
         }
+
+        function removeThankYou() {
+            thankYou.classList.add('hidden')
+        }
+
+       
+
     
 
 console.log("🐠 🐳  Just Keep Swimming and don't forget to JustDreamBig! 🚀 🚀")
