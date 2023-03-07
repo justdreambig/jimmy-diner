@@ -5,6 +5,7 @@ export const menuArray = [
         price: 14,
         emoji: "🍕",
         id: 4954,
+        class: "font-red"
     },
     {
         name: "Hamburger",
