@@ -15,7 +15,7 @@ function getMenuHtml() {
                     </div> 
                         
                     <div class="menu-item-description">
-                        <div class="menu-item-name"> ${menu.name} </div>
+                        <div class="menu-item-name ${menu.class}"> ${menu.name} </div>
                         <div class="menu-item-ingredients"> ${menu.ingredients} </div>
                         <div class="menu-item-price"> $${menu.price} </div>  
                     </div> 

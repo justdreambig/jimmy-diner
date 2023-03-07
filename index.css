@@ -8,6 +8,10 @@ body {
     color: #000000;
 } 
 
+.font-red {
+    color:red;
+}
+
 main {
     position: relative;
 }
